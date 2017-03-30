@@ -2,30 +2,30 @@ package mqtt
 
 import (
 	"fmt"
-	mqtt "github.com/eclipse/paho.mqtt.golang"
+	paho_mqtt "github.com/eclipse/paho.mqtt.golang"
 	"log"
 )
 
 type clientWrapper struct {
-	client mqtt.Client
+	client paho_mqtt.Client
 	broker string
 }
 
 type MessageHandler func(topic string, payload []byte)
 
 func NewClient(host string, port int) *clientWrapper {
-	opts := mqtt.NewClientOptions()
+	opts := paho_mqtt.NewClientOptions()
 	broker := fmt.Sprintf("tcp://%s:%d", host, port)
 	opts.AddBroker(broker)
-	opts.OnConnect = func(client mqtt.Client) {
+	opts.OnConnect = func(client paho_mqtt.Client) {
 		log.Printf("Connection to broker %v succeded", broker)
 	}
-	opts.OnConnectionLost = func(client mqtt.Client, reason error) {
+	opts.OnConnectionLost = func(client paho_mqtt.Client, reason error) {
 		log.Printf("Connection lost from broker %v -> %v", broker, reason.Error())
 	}
 	opts.AutoReconnect = true
 	return &clientWrapper{
-		client: mqtt.NewClient(opts),
+		client: paho_mqtt.NewClient(opts),
 		broker: broker,
 	}
 }
@@ -38,7 +38,7 @@ func (cw *clientWrapper) Connect() error {
 }
 
 func (cw *clientWrapper) Subscribe(topic string, handler MessageHandler) error {
-	token := cw.client.Subscribe(topic, byte(1), func(client mqtt.Client, message mqtt.Message) {
+	token := cw.client.Subscribe(topic, byte(1), func(client paho_mqtt.Client, message paho_mqtt.Message) {
 		handler(message.Topic(), message.Payload())
 	})
 	token.Wait()

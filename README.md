@@ -7,6 +7,7 @@
 ```
 $ cd ~/go/src
 $ git clone git@github.com:snipsco/snips-platform-lambda-samples.git
+$ go get github.com/eclipse/paho.mqtt.golang
 $ go install snips-platform-lambda-samples/...
 ```
 
