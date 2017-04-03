@@ -11,14 +11,30 @@ $ go get github.com/eclipse/paho.mqtt.golang
 $ go install snips-platform-lambda-samples/...
 ```
 
-### Configuration
+### Hue sample
+
+#### Configuration
 
 Edit `go/hue/conf.ini` to setup:
 - Snips Platform host/port
 - your Philips Hue router/username/bulbs
 
-### Start
+#### Start
 
 ```
-$ ~/go/bin/hue -c ~/go/src/snips-platform-lambda-samples/go/hue/conf.ini
+$ ~/go/bin/hue -c go/hue/conf.ini
+```
+
+### Weather sample
+
+#### Configuration
+
+Edit `go/weather/conf.ini` to setup:
+- Snips Platform host/port
+- your openweathermap.org api key
+
+#### Start
+
+```
+$ ~/go/bin/weather -c go/weather/conf.ini
 ```
