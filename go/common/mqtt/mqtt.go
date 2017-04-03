@@ -37,6 +37,12 @@ func (cw *clientWrapper) Connect() error {
 	return token.Error()
 }
 
+func (cw *clientWrapper) Publish(topic string, payload []byte) error {
+	token := cw.client.Publish(topic, byte(1), false, payload)
+	token.Wait()
+	return token.Error()
+}
+
 func (cw *clientWrapper) Subscribe(topic string, handler MessageHandler) error {
 	token := cw.client.Subscribe(topic, byte(1), func(client paho_mqtt.Client, message paho_mqtt.Message) {
 		handler(message.Topic(), message.Payload())

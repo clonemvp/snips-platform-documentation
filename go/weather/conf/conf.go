@@ -6,17 +6,15 @@ import (
 	"log"
 )
 
-type HueConf struct {
+type WeatherConf struct {
 	Cfg          ini.File
 	PlatformHost string
 	PlatformPort int
-	HueRouter    string
-	HueUsername  string
-	HueBulbs     []string
+	ApiKey       string
 }
 
-func Run(args []string, f func(hc HueConf)) {
-	app := cli.App("~/go/bin/hue", "Snips Platform sample using Philips Hue")
+func Run(args []string, f func(hc WeatherConf)) {
+	app := cli.App("~/go/bin/weather", "Snips Platform sample for weather")
 	path := app.StringOpt("c", "conf.ini", "Configuration file")
 	app.Action = func() {
 		cfg, err := ini.Load(*path)
@@ -28,18 +26,14 @@ func Run(args []string, f func(hc HueConf)) {
 		platformHost := networkConf.Key("Host").String()
 		platformPort, _ := networkConf.Key("Port").Int()
 
-		hue := cfg.Section("HUE")
-		hueRouter := hue.Key("Router").String()
-		hueUsername := hue.Key("Username").String()
-		hueBulbs := hue.Key("Bulbs").Strings(",")
+		hue := cfg.Section("OPENWEATHERMAP")
+		apiKey := hue.Key("ApiKey").String()
 
-		f(HueConf{
+		f(WeatherConf{
 			Cfg:          *cfg,
 			PlatformHost: platformHost,
 			PlatformPort: platformPort,
-			HueRouter:    hueRouter,
-			HueUsername:  hueUsername,
-			HueBulbs:     hueBulbs,
+			ApiKey:       apiKey,
 		})
 	}
 	app.Run(args)

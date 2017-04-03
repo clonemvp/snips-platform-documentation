@@ -1,18 +1,17 @@
 package main
 
 import (
-	"encoding/json"
-	"log"
 	"os"
 	"strings"
-	"snips-platform-lambda-samples/go/hue/mqtt"
+	"snips-platform-lambda-samples/go/common/mqtt"
 	"snips-platform-lambda-samples/go/hue/conf"
 	"snips-platform-lambda-samples/go/hue/bulb"
+	"snips-platform-lambda-samples/go/common/models"
 )
 
 func main() {
-	conf.Run(os.Args, func(sc conf.SampleConf) {
-		client := mqtt.NewClient(sc.PlatformHost, sc.PlatformPort)
+	conf.Run(os.Args, func(hc conf.HueConf) {
+		client := mqtt.NewClient(hc.PlatformHost, hc.PlatformPort)
 		client.Connect()
 		defer client.Disconnect()
 
@@ -38,20 +37,13 @@ func main() {
 		})
 
 		for {
-			bulb.SetState(sc, <-stateChannel)
+			bulb.SetState(hc, <-stateChannel)
 		}
 	})
 }
 
 func parse(payload []byte) string {
-	var obj map[string]interface{}
-	json.Unmarshal(payload, &obj)
-	log.Printf("received %v", obj)
-
-	parsed_slots := obj["parsed_slots"].([]interface{})
-	slot := parsed_slots[0].(map[string]interface{})
-	value := slot["value"].(string)
-	log.Printf("value is %v", value)
-
+	intent := models.ParseIntent(payload)
+	value := intent.ParsedSlots[0].Value
 	return strings.ToLower(value)
 }

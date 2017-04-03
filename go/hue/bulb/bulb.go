@@ -39,11 +39,11 @@ var (
 	GREEN = newOnState(25500, 255)
 )
 
-func SetState(sc conf.SampleConf, state State) {
+func SetState(hc conf.HueConf, state State) {
 	r, _ := json.Marshal(state)
 
-	for _, bulbId := range sc.HueBulbs {
-		url := fmt.Sprintf("http://%v/api/%v/lights/%v/state", sc.HueRouter, sc.HueUsername, bulbId)
+	for _, bulbId := range hc.HueBulbs {
+		url := fmt.Sprintf("http://%v/api/%v/lights/%v/state", hc.HueRouter, hc.HueUsername, bulbId)
 		log.Printf("%v on %v", string(r), url)
 		request, _ := http.NewRequest("PUT", url, bytes.NewReader(r))
 		http.DefaultClient.Do(request)
