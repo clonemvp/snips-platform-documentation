@@ -4,6 +4,7 @@ import (
 	"fmt"
 	paho_mqtt "github.com/eclipse/paho.mqtt.golang"
 	"log"
+	"snips-platform-lambda-samples/go/common/conf"
 )
 
 type clientWrapper struct {
@@ -13,9 +14,9 @@ type clientWrapper struct {
 
 type MessageHandler func(topic string, payload []byte)
 
-func NewClient(host string, port int) *clientWrapper {
+func NewClient(pc conf.PlatformConf) *clientWrapper {
 	opts := paho_mqtt.NewClientOptions()
-	broker := fmt.Sprintf("tcp://%s:%d", host, port)
+	broker := fmt.Sprintf("tcp://%s:%d", pc.PlatformHost, pc.PlatformPort)
 	opts.AddBroker(broker)
 	opts.OnConnect = func(client paho_mqtt.Client) {
 		log.Printf("Connection to broker %v succeded", broker)

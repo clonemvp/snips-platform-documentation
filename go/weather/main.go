@@ -12,21 +12,21 @@ import (
 )
 
 func main() {
-	conf.Run(os.Args, func(sc conf.WeatherConf) {
-		client := mqtt.NewClient(sc.PlatformHost, sc.PlatformPort)
+	conf.Run(os.Args, func(wc conf.WeatherConf) {
+		client := mqtt.NewClient(wc.PlatformConf)
 		client.Connect()
 		defer client.Disconnect()
 
 		cityChannel := make(chan string)
 
 		client.Subscribe("hermes/Intent/get_weather", func(topic string, payload []byte) {
-			value := models.ParseIntent(payload).ParsedSlots[0].Value
+			value := models.ParseIntent(payload).Slots[0].Value
 			cityChannel <- strings.ToLower(value)
 		})
 
 		for {
 			m := make(map[string]string)
-			m["text"] = openweathermap.GetWeather(sc, <-cityChannel)
+			m["text"] = openweathermap.GetWeather(wc, <-cityChannel)
 			message, err := json.Marshal(m)
 			if err != nil {
 				log.Fatalf("main: %v", err)

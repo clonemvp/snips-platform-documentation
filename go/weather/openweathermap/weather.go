@@ -34,6 +34,6 @@ func GetWeather(wc conf.WeatherConf, city string) string {
 
 type OwmResponse struct {
 	Main struct {
-		Temp int `json:"temp"`
+		Temp float64 `json:"temp"`
 	} `json:"main"`
 }

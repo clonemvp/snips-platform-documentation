@@ -11,7 +11,7 @@ import (
 
 func main() {
 	conf.Run(os.Args, func(hc conf.HueConf) {
-		client := mqtt.NewClient(hc.PlatformHost, hc.PlatformPort)
+		client := mqtt.NewClient(hc.PlatformConf)
 		client.Connect()
 		defer client.Disconnect()
 
@@ -44,6 +44,6 @@ func main() {
 
 func parse(payload []byte) string {
 	intent := models.ParseIntent(payload)
-	value := intent.ParsedSlots[0].Value
+	value := intent.Slots[0].Value
 	return strings.ToLower(value)
 }

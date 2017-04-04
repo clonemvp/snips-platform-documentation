@@ -7,16 +7,16 @@ import (
 
 type Intent struct {
 	Text string `json:"text"`
-	ParsedIntent struct {
-		IntentName  string `json:"intent_name"`
-		Probability float64
-	} `json:"parsed_intent"`
+	Intent struct {
+		Name        string `json:"intent_name"`
+		Probability float64 `json:"probability"`
+	} `json:"intent"`
 
-	ParsedSlots []struct {
-		Value      string `json:"value"`
-		MatchRange []int `json:"match_range"`
-		SlotName   string `json:"slot_name"`
-	} `json:"parsed_slots"`
+	Slots []struct {
+		Name  string `json:"slot_name"`
+		Range []int `json:"range"`
+		Value string `json:"value"`
+	} `json:"slots"`
 }
 
 func ParseIntent(payload []byte) Intent {
