@@ -23,7 +23,7 @@ func main() {
 			intent := models.ParseIntent(payload)
 			probability := intent.Intent.Probability
 			log.Printf("received get weather [%v] with probability: %v", intent, probability)
-			if probability > 0.75 {
+			if probability > 0.75 && len(intent.Slots) > 0 {
 				value := intent.Slots[0].Value
 				cityChannel <- strings.ToLower(value)
 			}
