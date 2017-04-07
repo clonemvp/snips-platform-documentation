@@ -19,9 +19,14 @@ func main() {
 
 		cityChannel := make(chan string)
 
-		client.Subscribe("hermes/Intent/get_weather", func(topic string, payload []byte) {
-			value := models.ParseIntent(payload).Slots[0].Value
-			cityChannel <- strings.ToLower(value)
+		client.Subscribe("hermes/Intent/GetWeather", func(topic string, payload []byte) {
+			intent := models.ParseIntent(payload)
+			probability := intent.Intent.Probability
+			log.Printf("received get weather [%v] with probability: %v", intent, probability)
+			if probability > 0.75 {
+				value := intent.Slots[0].Value
+				cityChannel <- strings.ToLower(value)
+			}
 		})
 
 		for {
