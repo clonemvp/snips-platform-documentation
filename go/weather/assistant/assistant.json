@@ -1,88 +1,18 @@
 {
-    "name": "Weather Sample",
+    "name": "Weather",
     "intents": [
         {
             "type": "registry",
-            "id": "ea7e4861-ae90-453a-a105-74424075136b__GetWeather",
+            "id": "GetWeather",
             "version": "latest",
             "language": "en",
             "engine": {
-                "type": "regex",
-                "version": "0.0.1"
+                "version": "0.0.1",
+                "type": "tensorflow"
             }
         }
     ],
-    "createdAt": 1491812357724,
+    "createdAt": 1493043223644,
     "language": "en",
-    "data": {
-        "entities": {
-            "location": {
-                "automatically_extensible": true,
-                "user_id": "ea7e4861-ae90-453a-a105-74424075136b",
-                "name": "location",
-                "language": "en",
-                "author": "guillaume.saintraymond@snips.ai",
-                "use_synonyms": true,
-                "entity_type": "custom",
-                "private": true,
-                "data": [
-                    {
-                        "synonyms": [
-                            "paris"
-                        ],
-                        "value": "paris"
-                    },
-                    {
-                        "synonyms": [
-                            "london"
-                        ],
-                        "value": "london"
-                    },
-                    {
-                        "synonyms": [
-                            "berlin"
-                        ],
-                        "value": "berlin"
-                    }
-                ],
-                "id": "entity_HkI5ewG6x"
-            }
-        },
-        "intents": {
-            "ea7e4861-ae90-453a-a105-74424075136b__GetWeather": {
-                "engineType": "regex",
-                "utterances": [
-                    {
-                        "data": [
-                            {
-                                "text": "what is the weather in ",
-                                "range": {
-                                    "start": 0,
-                                    "end": 23
-                                }
-                            },
-                            {
-                                "text": "paris",
-                                "range": {
-                                    "start": 23,
-                                    "end": 28
-                                },
-                                "entity": "location",
-                                "id": "entity_HkI5ewG6x",
-                                "slot_name": "location"
-                            },
-                            {
-                                "text": " ?",
-                                "range": {
-                                    "start": 28,
-                                    "end": 30
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        "language": "en"
-    }
+    "data": {}
 }
