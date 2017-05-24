@@ -1,5 +1,5 @@
 {
-    "name": "Weather",
+    "name": "GetWeather",
     "intents": [
         {
             "type": "registry",
@@ -12,7 +12,7 @@
             }
         }
     ],
-    "createdAt": 1493740328033,
+    "createdAt": 1495633991238,
     "language": "en",
     "data": {
         "entities": {},
@@ -7024,5 +7024,8 @@
             }
         },
         "language": "en"
+    },
+    "nluEngine": {
+        "version": "0.4.1"
     }
 }
