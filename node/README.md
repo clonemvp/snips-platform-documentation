@@ -24,7 +24,7 @@ Then all you need is a MQTT client:
 npm install mqtt --save
 ```
 
-You also need to have [setup your platform with the Snips assistant](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi) and copied an assistant model to `/opt/snips/config` on your device, you can use the [demo IoT assistant](https://github.com/snipsco/snips-platform-documentation/raw/master/resources/iot_assistant.zip)
+You also need to have [setup your platform with the Snips assistant](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi) and copied an assistant model (you can use the [demo IoT assistant](https://github.com/snipsco/snips-platform-documentation/raw/master/resources/iot_assistant.zip)) to `/opt/snips/config` on your device
 
 ## Display messages
 
