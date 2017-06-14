@@ -55,7 +55,7 @@ You will find everything you need in the [wiki](https://github.com/snipsco/snips
 
 [FAQ](https://github.com/snipsco/snips-platform-documentation/wiki/FAQ)
 
-### Handler examples for your Snips assistant
+### Handler code example for your Snips assistant
 
 When you have built an assistant on <https://snips.ai> by following [the tutorial](https://github.com/snipsco/snips-platform-documentation/wiki), you can write your own handler to act on the behalf of the user.
 
