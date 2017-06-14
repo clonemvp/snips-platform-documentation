@@ -17,7 +17,7 @@ You will find everything you need in the [wiki](https://github.com/snipsco/snips
     * [On-device processing](https://github.com/snipsco/snips-platform-documentation/wiki#building-your-assistant-via-the-console)
 
 1. [Setup the Snips Voice Platform on your Raspberry Pi](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi)
-    * [Snips Platform Installation](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi#1-snips-platform-installation)
+    * [1. Snips Platform Installation](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi#1-snips-platform-installation)
     * [2. Snips Platform Configuration](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi#2-snips-platform-configuration)
 
 2. [Running your first end to end assistant](https://github.com/snipsco/snips-platform-documentation/wiki/2.-Running-your-first-end-to-end-assistant)
@@ -30,11 +30,11 @@ You will find everything you need in the [wiki](https://github.com/snipsco/snips
     * [Diving in](https://github.com/snipsco/snips-platform-documentation/wiki/3.-Building-an-end-to-end-assistant-with-a-custom-intent#diving-in)
 4. [Create an assistant with custom slot types (advanced)](https://github.com/snipsco/snips-platform-documentation/wiki/4.-Create-an-assistant-with-custom-slot-types-(advanced))
 5. [Learn more: Key Concepts](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts)
-    1. [Hotword Detection](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#1-hotword-detection)
-    2. [Automatic Speech Recognition](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#2-automatic-speech-recognition)
+    * [Hotword Detection](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#1-hotword-detection)
+    * [Automatic Speech Recognition](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#2-automatic-speech-recognition)
         * [Snips ASR  (English, with French and more coming soon)](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#snips-asr)
         * [Using Google’s Cloud service for other languages](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#using-googles-cloud-service-for-other-languages)
-    3. [Natural Language Understanding](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#3-natural-language-understanding)
+    * [Natural Language Understanding](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#3-natural-language-understanding)
        * [Intent](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#intent)
        * [Slot](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#slot)
        * [Confirmation](https://github.com/snipsco/snips-platform-documentation/wiki/5.-Learn-more:-Key-Concepts#confirmation)
@@ -45,9 +45,9 @@ You will find everything you need in the [wiki](https://github.com/snipsco/snips
     * [Logger settings](https://github.com/snipsco/snips-platform-documentation/wiki/6.--Learn-more:-Platform-Commands#logger-settings)
 
 7. [Learn more: built in resources](https://github.com/snipsco/snips-platform-documentation/wiki/7.-Learn-more:-built-in-resources)
-    1. [Built-in slot types](https://github.com/snipsco/snips-platform-documentation/wiki/7.-Learn-more:-built-in-resources#1-built-in-slot-types)
-    2. [Built-in intents](https://github.com/snipsco/snips-platform-documentation/wiki/7.-Learn-more:-built-in-resources#2-built-in-intents)
-    3. [Bundles](https://github.com/snipsco/snips-platform-documentation/wiki/7.-Learn-more:-built-in-resources#3-bundles)
+    * [Built-in slot types](https://github.com/snipsco/snips-platform-documentation/wiki/7.-Learn-more:-built-in-resources#1-built-in-slot-types)
+    * [Built-in intents](https://github.com/snipsco/snips-platform-documentation/wiki/7.-Learn-more:-built-in-resources#2-built-in-intents)
+    * [Bundles](https://github.com/snipsco/snips-platform-documentation/wiki/7.-Learn-more:-built-in-resources#3-bundles)
 
 8. [Learn more : Snips Internals](https://github.com/snipsco/snips-platform-documentation/wiki/8.-Learn-more-:-Snips-Internals)
 
