@@ -24,6 +24,8 @@ Then all you need is a MQTT client:
 npm install mqtt --save
 ```
 
+You also need to have [setup your platform with the Snips assistant](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi) and copied an assistant model to `/opt/snips/config` on your device, you can use the [demo IoT assistant](https://github.com/snipsco/snips-platform-documentation/raw/master/resources/iot_assistant.zip)
+
 ## Display messages
 
 The components of the AI are communicating and coordinating through a MQTT bus, a good way to understand what your on-device Snips assistant is doing is to look at the messages on the bus
@@ -48,6 +50,6 @@ node index.js
 
 ## IoT Assistant
 
-If you followed [this tutorial](https://github.com/snipsco/snips-platform-documentation/wiki/2.-Running-your-first-end-to-end-assistant) you have built an assistant to handle a few interesting intents for IoT.
+If you followed [this tutorial](https://github.com/snipsco/snips-platform-documentation/wiki/2.-Running-your-first-end-to-end-assistant) you have built an assistant to handle a few interesting intents for IoT. You can also install a prebuilt [IoT assistant ](https://github.com/snipsco/snips-platform-documentation/raw/master/resources/iot_assistant.zip) and uncompress it on your device in `/opt/snips/config`
 
 The code is a handler which shows how to get the intents as they are sent by the natural language understanding, and do an action by sending a helpful message on the text-to-speech channel
