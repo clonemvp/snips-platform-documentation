@@ -1,0 +1,17 @@
+{
+  "name": "snips-iot-assistant-sample",
+  "version": "1.0.0",
+  "description": "A sample assistant for Snips, the voice assistant platform",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snipsco/snips-platform-lambda-samples.git"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "homepage": "https://snips.ai",
+  "dependencies": {
+    "mqtt": "2.8.2"
+  }
+}
