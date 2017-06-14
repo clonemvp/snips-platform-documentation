@@ -15,11 +15,11 @@ You will find everything you need in the [wiki](https://github.com/snipsco/snips
     * [Hardware requirements](https://github.com/snipsco/snips-platform-documentation/wiki#hardware-requirements)
     * [Building your assistant via the console](https://github.com/snipsco/snips-platform-documentation/wiki#building-your-assistant-via-the-console)
     * [On-device processing](https://github.com/snipsco/snips-platform-documentation/wiki#building-your-assistant-via-the-console)
-    
+
 1. [Setup the Snips Voice Platform on your Raspberry Pi](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi)
     * [Snips Platform Installation](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi#1-snips-platform-installation)
     * [2. Snips Platform Configuration](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi#2-snips-platform-configuration)
-    
+
 2. [Running your first end to end assistant](https://github.com/snipsco/snips-platform-documentation/wiki/2.-Running-your-first-end-to-end-assistant)
     * [Scope of the tutorial](https://github.com/snipsco/snips-platform-documentation/wiki/2.-Running-your-first-end-to-end-assistant#scope-of-the-tutorial)
     * [1. Downloading the assistant from the web console](https://github.com/snipsco/snips-platform-documentation/wiki/2.-Running-your-first-end-to-end-assistant#1-downloading-your-first-assistant-from-the-web-console)
@@ -54,3 +54,34 @@ You will find everything you need in the [wiki](https://github.com/snipsco/snips
 [Contact us](https://github.com/snipsco/snips-platform-documentation/wiki/Contact-us)
 
 [FAQ](https://github.com/snipsco/snips-platform-documentation/wiki/FAQ)
+
+### Handler examples for your Snips assistant
+
+When you have built an assistant on <https://snips.ai> by following [the tutorial](https://github.com/snipsco/snips-platform-documentation/wiki), you can write your own handler to act on the behalf of the user.
+
+This repository contains a few examples in various languages
+
+#### Display messages
+
+The components of the AI are communicating and coordinating through a MQTT bus, a good way to understand what your on-device Snips assistant is doing is to look at the messages on the bus
+
+```
+python display_messages/display_messages.py
+-  hermes/hotword/detected:
+-  hermes/hotword/wait:
+-  hermes/asr/toggleOn:
+-  hermes/audioServer/playFile: {"filePath":"/usr/share/snips/dialogue/sound/start_of_input.wav"}
+-  hermes/asr/textCaptured: {"text":"turn the lights blue","likelihood":0.0034613716,"seconds":3462000.0}
+-  hermes/asr/toggleOff:
+-  hermes/audioServer/playFile: {"filePath":"/usr/share/snips/dialogue/sound/end_of_input.wav"}
+-  hermes/nlu/query: {"text":"turn the lights blue","likelihood":0.0034613716,"seconds":3462000.0}
+-  hermes/nlu/intentParsed: {"input":"turn the lights blue","intent":{"intentName":"ActivateLightColor","probability":0.9836065},"slots":[{"value":{"kind":"Custom","value":"blue"},"rawValue":"blue","range":{"start":16,"end":20},"entity":"objectColor","slotName":"objectColor"}]}
+-  hermes/intent/ActivateLightColor: {"input":"turn the lights blue","intent":{"intentName":"ActivateLightColor","probability":0.9836065},"slots":[{"value":{"kind":"Custom","value":"blue"},"rawValue":"blue","range":{"start":16,"end":20},"entity":"objectColor","slotName":"objectColor"}]}
+```
+
+
+#### IoT Assistant
+
+If you followed [this tutorial](https://github.com/snipsco/snips-platform-documentation/wiki/2.-Running-your-first-end-to-end-assistant) you have built an assistant to handle a few interesting intents for IoT.
+
+The code is a handler which shows how to get the intents as they are sent by the natural language understanding, and do an action by sending a helpful message on the text-to-speech channel
